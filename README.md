@@ -34,7 +34,7 @@ A empresa vem sofrendo cancelamentos de assinaturas entre 2016 até 2021. O obje
 
 ### 3.1 - Função para construir gráficos de barras
 
-Como foram criados 4 gráficos de barras no código, se criou uma função que constrói gráficos de barras de cor vermelha. Para isso, se importou <i>matplotlib</i>. A função chama na ordem: Dados do eixo x (de prefêrencia uma lista), dados do eixo y (de prefêrencia uma lista), legenda do eixo x (uma string), legenda do eixo y (uma string) e o título do gráfico (uma string).
+Como foram criados 4 gráficos de barras no código, se criou uma função que constrói gráficos de barras de cor vermelha. Para isso, se importou <i>matplotlib</i>. A função <i>barras</i> chama na ordem: Dados do eixo x (de prefêrencia uma lista), dados do eixo y (de prefêrencia uma lista), legenda do eixo x (uma string), legenda do eixo y (uma string) e o título do gráfico (uma string).
 
 ```python
 # Importar o módulo matplotlib
