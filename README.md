@@ -5,24 +5,29 @@
 Tabela de conteúdos
 =================
 <!--ts-->
-   * [1 - Problema](#Problema)
-   * [2 - Tecnologia utilizada](Tecnologia utilizada)
-   * [Instalação](#instalacao)
-   * [Como usar](#como-usar)
-      * [Pre Requisitos](#pre-requisitos)
-      * [Local files](#local-files)
-      * [Remote files](#remote-files)
-      * [Multiple files](#multiple-files)
-      * [Combo](#combo)
+   * Problema
+   * Tecnologia utilizada
+   * Metodologia e resultados
+      * Leitura dos dados preparados pela equipe de engenharia de dados
+      * Analise dos status das assinaturas
+      * Construção do gráfico dos status das assinaturas em 2021
+      * Calcular a quantidade de assinaturas canceladas entre os anos de 2016 e 2021
+      * Calcular a quantidade de churns por ano e mostrar esses dados em um gráfico
+      * Contruir um gráfico de barras, mostrando as quantidades de churns entre 2016 e 2021
+      * Separando os cancelamentos das assinaturas por faixa etária dos assinantes
+      * Contruir um gráfico de barras, mostrando a faixa etária daqueles que cancelaram suas assinaturas no ano de 2020
+      * Calcular os churns por mês, no ano de 2020, onde houve maior quantidade de cancelamentos de assinaturas
+      * Análise das assinaturas pausadas em 2020 e 2021 por mês
+
    * [Tests](#testes)
    * [Tecnologias](#tecnologias)
 <!--te-->
 
-## 1 - Problema
+## Problema
 
 A empresa vem sofrendo cancelamentos de assinaturas entre 2016 até 2021. O objetivo desta análise é analisar os status das assinaturas e propor ideias para mudar essa situação.
 
-## 2 - Tecnologia utilizada
+## Tecnologia utilizada
 
 - Python 3
 
@@ -371,8 +376,6 @@ plt.show() # Mostra o gráfico
 <div align="center" >Figura 4. Imagem do gráfico de barra mostrando os churns em 2020, em cada mês.</div>
 
 ### Análise das assinaturas pausadas
-
-# Calcular as assinaturas pausadas em 2020 e 2021 por mês
 
 Na última parte do código, se analiza as assinaturas que foram pausadas. Para isso, se criou duas matrizes para armazenar as assinaturas que foram pausadas, com cada uma contendo 12 espaços. Em seguida se criou um mecanismo para procurar as assinaturas que foram pausadas no ano de 2021 <i>if matriz[t][8] == "paused" and matriz[t][13][6] == '2' and matriz[t][13][7] == '1':</i>, procurando as assinaturas pausadas em cada mês.
 
