@@ -7,7 +7,7 @@ Tabela de conteúdos
 <!--ts-->
    * Problema
    * Tecnologia utilizada
-   * Metodologia e resultados
+   * Análise do código e resultados
       * Leitura dos dados preparados pela equipe de engenharia de dados
       * Analise dos status das assinaturas
       * Construção do gráfico dos status das assinaturas em 2021
@@ -19,8 +19,6 @@ Tabela de conteúdos
       * Calcular os churns por mês, no ano de 2020, onde houve maior quantidade de cancelamentos de assinaturas
       * Análise das assinaturas pausadas em 2020 e 2021 por mês
 
-   * [Tests](#testes)
-   * [Tecnologias](#tecnologias)
 <!--te-->
 
 ## Problema
@@ -31,7 +29,7 @@ A empresa vem sofrendo cancelamentos de assinaturas entre 2016 até 2021. O obje
 
 - Python 3
 
-## Metodologia e resultados
+## Análise do código e resultados
 
 ### Leitura dos dados preparados pela equipe de engenharia de dados
 
