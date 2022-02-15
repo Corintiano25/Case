@@ -18,20 +18,21 @@ Tabela de conteúdos
       * 3.8 - Calcular os churns por mês, no ano de 2020, onde houve maior quantidade de cancelamentos de assinaturas
       * 3.9 - Análise das assinaturas pausadas
       * 3.10 - Construção dos gráficos de barras
-
+   * 4 - Resultados
+   * 5 - Conclusões
 <!--te-->
 
-## Problema
+## 1 - Problema
 
 A empresa vem sofrendo cancelamentos de assinaturas entre 2016 até 2021. O objetivo desta análise é analisar os status das assinaturas e propor ideias para mudar essa situação.
 
-## Tecnologia utilizada
+## 2 - Tecnologia utilizada
 
 - Python 3
 
-## Análise do código e resultados
+## 3 - Análise do código e resultados
 
-### Função para construir gráficos de barras
+### 3.1 - Função para construir gráficos de barras
 
 Como foram criados 4 gráficos de barras no código, se criou uma função que constrói gráficos de barras de cor vermelha. Para isso, se importou <i>matplotlib</i>. A função chama na ordem: Dados do eixo x (de prefêrencia uma lista), dados do eixo y (de prefêrencia uma lista), legenda do eixo x (uma string), legenda do eixo y (uma string) e o título do gráfico (uma string).
 
@@ -49,7 +50,7 @@ def barras(eixo_x, eixo_y, legenda_x, legenda_y, titulo_do_grafico):
     plt.show() # Mostra o gráfico
 ```
 
-### Leitura dos dados preparados pela equipe de engenharia de dados
+### 3.2 - Leitura dos dados preparados pela equipe de engenharia de dados
 
 Aqui se abriu o arquivo de extenção .csv importando o módulo <i>csv</i>. Assim, foi possível ler os dados do arquivo <i>data-test-analytics.csv</i> e importá-los para uma matriz.
 <br> OBS: É importante notar que neste caso, para o código funcionar, é necessário que 
@@ -75,7 +76,7 @@ with open('data-test-analytics.csv', encoding = 'cp850') as csv_file:
         matriz.append(row)
 ```
 
-### Analise dos status das assinaturas
+### 3.3 - Analise dos status das assinaturas
 
 Após a construção da matriz com os dados, se armazenou as porcentagens de assinaturas ativas, canceladas e pausadas na lista <i>assinaturas_porcentagem</i>. As porcentagens
 foram armazenadas até a segunda casa decimal, através da função <i>round</i>.
@@ -107,7 +108,7 @@ assinaturas_porcentagem[2] = round((assinaturas_porcentagem[2] / assinantes_inic
 print('Em porcentagem, as assinaturas ativas são', assinaturas_porcentagem[0], ', de canceladas', assinaturas_porcentagem[2], 'e de porcentagem pausadas,', assinaturas_porcentagem[1])
 ```
 
-### Gráfico de pizza mostrando as situações das assinaturas
+### 3.4 - Gráfico de pizza mostrando as situações das assinaturas
 
 Após separar as situações das assinaturas, se construiu um gráfico de pizzas apra ilustar melhor a situação atual. Em <i>legendas</i> se colocou as legendas de cada item e em <i>cores</i>, as cores de cada pizza. Em <i>plt.tilte</i> se coloca o título do gráfico.
 
@@ -128,9 +129,9 @@ plt.show() # Mostra o gráfico
 <img src="https://user-images.githubusercontent.com/99688544/153971766-64764669-f863-4e79-ae0c-7061fa3381e9.png" width="700px" />
 </div>
 <div align="center" >Figura 1. Imagem do gráfico de pizza mostrando a situação das assinaturas.</div>
-```
 
-### Calcular a quantidade de assinaturas canceladas entre os anos de 2016 e 2021
+
+### 3.5 - Calcular a quantidade de assinaturas canceladas entre os anos de 2016 e 2021
 
 Aqui foi necessário fazer uma lista para armazenar a quantidade de cancelamentos por ano em <i>cancelamentos_por_ano</i>. Para fazer a separação de assinaturas canceladas, se
 usou a estrutura de repetição <i>for</i> e a estrutura condicional <i>if matriz[j][8] == "canceled":</i>. Cada ítem de <i>cancelamentos_por_ano</i> foi aumentada dem 1 cada vez
@@ -173,7 +174,7 @@ for j in range(assinantes_iniciais):
    
 print("Total de assinaturas canceladas:", assinaturas_porcentagem[2] * 100, "e cancelamentos por ano (entre 2016, até o final de 2021): ", cancelamentos_ano)
 ```
-### Calcular a quantidade de churns por ano
+### 3.6 - Calcular a quantidade de churns por ano
 
 Para analisar a quantidade de churns por ano, se criou uma lista de 6 elementos para armazenar a quantidade de churns <i>churn_ano</i> (em porcentagem). Sempre tomando o cuidado
 de atualizar a quantidade de assinaturas ativas no ano seguinte.
@@ -198,7 +199,7 @@ for n in range(len(churn_ano)): # Calcula os churns
 print('Porcentagem de churns por ano (entre 2016, até o final de 2021):' , churn_ano)
 ```
 
-### Separando os cancelamentos das assinaturas por faixa etária dos assinantes
+### 3.7 - Separando os cancelamentos das assinaturas por faixa etária dos assinantes
 
 Primeiramente se criou a lista <i>cancelamento_faixa_etaria</i> de 7 valores para armazenar a quantidade de pessoas que cancelaram suas assinaturas por faixa etária (1940_1949,
 1950_1959, 1960_1969, 1970_1979, 1980_1989, 1990_1999 e 2000 - em diante, respectivamente). Para fazer isto, foi montada uma estrutura de repetição <i>for</i> para procuar as assinaturas caneladas em 2020 e adicioná-las na matriz <i>canceladas_2020</i>.
@@ -252,7 +253,7 @@ for k in range(len(canceladas_2020)):
 print('Cancelamentos por faixa etaria:', cancelamento_faixa_etaria)
 ```
 
-### Calcular os churns por mês, no ano de 2020, onde houve maior quantidade de cancelamentos de assinaturas
+### 3.8 - Calcular os churns por mês, no ano de 2020, onde houve maior quantidade de cancelamentos de assinaturas
 
 Para fazer esta estapa, se criou a lista <i>churn_2020</i>, com 12 espaços. E para as preencher, foi usado uma estrutura de repetição <i>for</i> onde se procurou e adicionou os meses em que as assinaturas foram canceladas na lista <i>churn_2020</i>. 
 
@@ -326,7 +327,7 @@ for i in range(len(churn_2020)):
     ativas_2020 = ativas_2020 - cancel_2020
 ```
 
-### Análise das assinaturas pausadas
+### 3.9 - Análise das assinaturas pausadas
 
 Na última parte do código, se analiza as assinaturas que foram pausadas. Para isso, se criou duas matrizes para armazenar as assinaturas que foram pausadas, com cada uma contendo 12 espaços. Em seguida se criou um mecanismo para procurar as assinaturas que foram pausadas no ano de 2021 <i>if matriz[t][8] == "paused" and matriz[t][13][6] == '2' and matriz[t][13][7] == '1':</i>, procurando as assinaturas pausadas em cada mês.
 
@@ -431,7 +432,7 @@ Aqui se realizou um mecanismo semelhante ao anterior, mas para procurar as assin
                 pausadas_2020[11] = pausadas_2020[11] + 1   
  ```
 
-### Construção dos gráficos de barras
+### 3.10 - Construção dos gráficos de barras
 
 Uma vez construida a função <i>barras</i>, foi só preciso chamar a função para construir os gráficos: Qquantidade de chunrs entre 2016 e 2021 (Figura 2), Cancelamentos realizados por 2020, por faixa etária (Figura 3), Churns por mês em em 2020  (Figura 4) e Churns em 2020, em cada mês (Figura 5).
 
@@ -490,3 +491,6 @@ barras(meses, (pausadas_2020[11], pausadas_2021[0]), 'Meses', 'Assinaturas pausa
 </div>
 <div align="center" >Figura 5. Imagem do gráfico de barra mostrando as assinaturas pausadas em 2020 e 2021.</div>
 
+## 4 - Resultados
+
+## 5 - Conclusões
