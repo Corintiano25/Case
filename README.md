@@ -5,19 +5,19 @@
 Tabela de conteúdos
 =================
 <!--ts-->
-   * Problema
-   * Tecnologia utilizada
-   * Análise do código e resultados
-      * Leitura dos dados preparados pela equipe de engenharia de dados
-      * Analise dos status das assinaturas
-      * Construção do gráfico dos status das assinaturas em 2021
-      * Calcular a quantidade de assinaturas canceladas entre os anos de 2016 e 2021
-      * Calcular a quantidade de churns por ano e mostrar esses dados em um gráfico
-      * Contruir um gráfico de barras, mostrando as quantidades de churns entre 2016 e 2021
-      * Separando os cancelamentos das assinaturas por faixa etária dos assinantes
-      * Contruir um gráfico de barras, mostrando a faixa etária daqueles que cancelaram suas assinaturas no ano de 2020
-      * Calcular os churns por mês, no ano de 2020, onde houve maior quantidade de cancelamentos de assinaturas
-      * Análise das assinaturas pausadas em 2020 e 2021 por mês
+   * 1 - Problema
+   * 2 - Tecnologia utilizada
+   * 3 - Análise do código e resultados
+      * 3.1 - Função para construir gráficos de barras
+      * 3.2 - Leitura dos dados preparados pela equipe de engenharia de dados
+      * 3.3 - Analise dos status das assinaturas
+      * 3.4 - Gráfico de pizza mostrando as situações das assinaturas
+      * 3.5 - Calcular a quantidade de assinaturas canceladas entre os anos de 2016 e 2021
+      * 3.6 - Calcular a quantidade de churns por ano
+      * 3.7 - Separando os cancelamentos das assinaturas por faixa etária dos assinantes
+      * 3.8 - Calcular os churns por mês, no ano de 2020, onde houve maior quantidade de cancelamentos de assinaturas
+      * 3.9 - Análise das assinaturas pausadas
+      * 3.10 - Construção dos gráficos de barras
 
 <!--te-->
 
