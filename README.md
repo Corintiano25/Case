@@ -24,7 +24,7 @@ Tabela de conteúdos
 
 ## 1 - Problema
 
-A empresa vem sofrendo cancelamentos de assinaturas entre 2016 até 2021. O objetivo desta análise é analisar os status das assinaturas e propor ideias para mudar essa situação.
+A empresa vem sofrendo cancelamentos de assinaturas entre 2016 até 2021. O objetivo é analisar os status das assinaturas e propor ideias para mudar essa situação.
 
 ## 2 - Tecnologia utilizada
 
