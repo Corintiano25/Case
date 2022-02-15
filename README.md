@@ -31,18 +31,33 @@ A empresa vem sofrendo cancelamentos de assinaturas entre 2016 até 2021. O obje
 
 ## Análise do código e resultados
 
+### Função para construir gráficos de barras
+
+Como foram criados 4 gráficos de barras no código, se criou uma função que constrói gráficos de barras de cor vermelha. Para isso, se importou <i>matplotlib</i>. A função chama na ordem: Dados do eixo x (de prefêrencia uma lista), dados do eixo y (de prefêrencia uma lista), legenda do eixo x (uma string), legenda do eixo y (uma string) e o título do gráfico (uma string).
+
+```python
+# Importar o módulo matplotlib
+from matplotlib import pyplot as plt
+
+# Função para fazer um gráfico de barras
+
+def barras(eixo_x, eixo_y, legenda_x, legenda_y, titulo_do_grafico):
+    plt.bar(eixo_x, eixo_y, color = 'red') # Opções do gráfico de barras
+    plt.xlabel(legenda_x) # Legenda do eixo x
+    plt.ylabel(legenda_y) # Legenda do eixo y
+    plt.title(titulo_do_grafico) # Título do gráfico
+    plt.show() # Mostra o gráfico
+```
+
 ### Leitura dos dados preparados pela equipe de engenharia de dados
 
 Aqui se abriu o arquivo de extenção .csv importando o módulo <i>csv</i>. Assim, foi possível ler os dados do arquivo <i>data-test-analytics.csv</i> e importá-los para uma matriz.
-Também se importou o módulo <i>matplotlib</i> para construir os gráficos posteriormente. <br> OBS: É importante notar que neste caso, para o código funcionar, é necessário que 
+<br> OBS: É importante notar que neste caso, para o código funcionar, é necessário que 
 o arquivo <i>data-test-analytics.csv</i> esteja na mesma pasta do progama.
 
 ``` python
 # Importar o módulo csv
 import csv
-
-# Importar o módulo matplotlib
-from matplotlib import pyplot as plt
 
 # Ler o arquivo feito pela engenharia de dados
 with open('data-test-analytics.csv', encoding = 'cp850') as csv_file:
@@ -63,7 +78,7 @@ with open('data-test-analytics.csv', encoding = 'cp850') as csv_file:
 ### Analise dos status das assinaturas
 
 Após a construção da matriz com os dados, se armazenou as porcentagens de assinaturas ativas, canceladas e pausadas na lista <i>assinaturas_porcentagem</i>. As porcentagens
-foram armazenadas até a segunda casa decimal, através da função <i>round</i>. (Figura 1)
+foram armazenadas até a segunda casa decimal, através da função <i>round</i>.
 
 ``` python
 
@@ -92,10 +107,9 @@ assinaturas_porcentagem[2] = round((assinaturas_porcentagem[2] / assinantes_inic
 print('Em porcentagem, as assinaturas ativas são', assinaturas_porcentagem[0], ', de canceladas', assinaturas_porcentagem[2], 'e de porcentagem pausadas,', assinaturas_porcentagem[1])
 ```
 
-### Construção do gráfico dos status das assinaturas em 2021
+### Gráfico de pizza mostrando as situações das assinaturas
 
-Uma vez armazenadas os status das assinaturas em <i>assinaturas_porcentagem</i>, se construiu um gráfico de pizza mostrando os status das assinaturas em 2021. <i>plt.legend</i>
-é a função para configurar a legenda do gráfico; <i>plt.title</i>, o título do gráfico e <i>plt.show()</i>, mostra o gráfico. (Figura 1)
+Após separar as situações das assinaturas, se construiu um gráfico de pizzas apra ilustar melhor a situação atual. Em <i>legendas</i> se colocou as legendas de cada item e em <i>cores</i>, as cores de cada pizza. Em <i>plt.tilte</i> se coloca o título do gráfico.
 
 ``` python
 # Fazer gráfico de pizza dos status das assinaturas hoje
@@ -114,6 +128,7 @@ plt.show() # Mostra o gráfico
 <img src="https://user-images.githubusercontent.com/99688544/153971766-64764669-f863-4e79-ae0c-7061fa3381e9.png" width="700px" />
 </div>
 <div align="center" >Figura 1. Imagem do gráfico de pizza mostrando a situação das assinaturas.</div>
+```
 
 ### Calcular a quantidade de assinaturas canceladas entre os anos de 2016 e 2021
 
@@ -158,7 +173,7 @@ for j in range(assinantes_iniciais):
    
 print("Total de assinaturas canceladas:", assinaturas_porcentagem[2] * 100, "e cancelamentos por ano (entre 2016, até o final de 2021): ", cancelamentos_ano)
 ```
-### Calcular a quantidade de churns por ano e mostrar esses dados em um gráfico
+### Calcular a quantidade de churns por ano
 
 Para analisar a quantidade de churns por ano, se criou uma lista de 6 elementos para armazenar a quantidade de churns <i>churn_ano</i> (em porcentagem). Sempre tomando o cuidado
 de atualizar a quantidade de assinaturas ativas no ano seguinte.
@@ -182,28 +197,6 @@ for n in range(len(churn_ano)): # Calcula os churns
 
 print('Porcentagem de churns por ano (entre 2016, até o final de 2021):' , churn_ano)
 ```
-
-### Contruir um gráfico de barras, mostrando as quantidades de churns entre 2016 e 2021
-
-Nesta parte do código, se utiliza o <i>matplotlib</i> para construir o gráfico de churns entre 2016 e 2021. É possível observar que a lista <i>churn_ano</i> já foi montada na
-etapa acima, só precisando então adicioná-la em <i>plt.bar(anos, churn_ano, color = 'red')</i>. (Figura 2)
-
-``` python
-# Fazer um gráfico de barras para mostrar os churns por ano
-
-anos = ["2016", "2017", "2018", "2019", "2020", "2021"] # Eixo x
-# A variavel churn_ano_ano vai ser o eixo y
-
-plt.bar(anos, churn_ano, color = 'red') # Opções do gráfico de barras
-plt.xlabel('Ano') # Legenda do eixo x
-plt.ylabel('Churn (Em porcentagem)') # Legenda do eixo y
-plt.title('Quantidade de chruns entre 2016 até o fim de 2021') # Título do gráfico
-plt.show() # Mostra o gráfico
-```
-<div align="center">
-<img src="https://user-images.githubusercontent.com/99688544/153973782-f9623d62-543f-47b2-83c9-fdfc2b88b70c.png" width="700px" />
-</div>
-<div align="center" >Figura 2. Imagem do gráfico de barra mostrando a quantidade de chunrs entre 2016 e 2021.</div>
 
 ### Separando os cancelamentos das assinaturas por faixa etária dos assinantes
 
@@ -258,27 +251,6 @@ for k in range(len(canceladas_2020)):
 
 print('Cancelamentos por faixa etaria:', cancelamento_faixa_etaria)
 ```
-
-### Contruir um gráfico de barras, mostrando a faixa etária daqueles que cancelaram suas assinaturas no ano de 2020
-
-foi usado o <i>matplotlib</i> novamente para construir o gráfico.
-
-```python
-# Fazer um gráfico de barras para mostrar os cancelamentos por faixa etária no ano de maior churn (2020)
-
-faixa_etaria = ["1940-1949", "1950-1959", "1960-1969", "1970-1979", "1980-1989" , "1990-1999", "2000, para cima"] # Eixo x
-# A variacel cancelamentos_ano vai ser o eixo y
-
-plt.bar(faixa_etaria, cancelamento_faixa_etaria, color = 'red') # Opções do gráfico de barras
-plt.xlabel('Faixa etária') # Legenda do eixo x
-plt.ylabel('Assinaturas canceladas') # Legenda do eixo y
-plt.title('Quantidade de cancelamentos em 2020 por faixa etária') # Título do gráfico
-plt.show() # Mostra o gráfico
-```
-<div align="center">
-<img src="https://user-images.githubusercontent.com/99688544/153978718-964bc6e4-11b4-4a42-a31b-785df5f90228.png" />
-</div>
-<div align="center" >Figura 3. Imagem do gráfico de barra mostrando os cancelamentos realizados por 2020, por faixa etária.</div>
 
 ### Calcular os churns por mês, no ano de 2020, onde houve maior quantidade de cancelamentos de assinaturas
 
@@ -353,25 +325,6 @@ for i in range(len(churn_2020)):
     churn_2020[i] = 100 * (churn_2020[i] / ativas_2020)
     ativas_2020 = ativas_2020 - cancel_2020
 ```
-
-Em seguida se construiu o gráfico dos chruns em 2020 (Figura 4).
-
-```python
-# Fazer um gráfico de barras para mostrar os churns por mês no ano de maior churn (2020)
-
-meses = ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"] # Eixo x
-# A variacel cancelamentos_ano vai ser o eixo y
-
-plt.bar(meses, churn_2020, color = 'red') # Opções do gráfico de barras
-plt.xlabel('Meses') # Legenda do eixo x
-plt.ylabel('Churn (Em porcentagem)') # Legenda do eixo y
-plt.title('Quantidade de chruns por mês, no ano de 2020') # Título do gráfico
-plt.show() # Mostra o gráfico
-```
-<div align="center">
-<img src="https://user-images.githubusercontent.com/99688544/153981320-c5e1ac59-e9f7-46bf-ac28-776ec630f8ed.png" />
-</div>
-<div align="center" >Figura 4. Imagem do gráfico de barra mostrando os churns em 2020, em cada mês.</div>
 
 ### Análise das assinaturas pausadas
 
@@ -477,20 +430,59 @@ Aqui se realizou um mecanismo semelhante ao anterior, mas para procurar as assin
             elif matriz[t][13][1] == '2': # Dezembro
                 pausadas_2020[11] = pausadas_2020[11] + 1   
  ```
- 
-Para visualizar as assinaturas que foram pausadas, se criou um gráfico de barras pelo <i>matplotlib</i>.
+
+### Construção dos gráficos de barras
+
+Uma vez construida a função <i>barras</i>, foi só preciso chamar a função para construir os gráficos: Qquantidade de chunrs entre 2016 e 2021 (Figura 2), Cancelamentos realizados por 2020, por faixa etária (Figura 3), Churns por mês em em 2020  (Figura 4) e Churns em 2020, em cada mês (Figura 5).
+
+``` python
+# Fazer um gráfico de barras para mostrar os churns por ano
+
+anos = ["2016", "2017", "2018", "2019", "2020", "2021"] # Eixo x
+# A variavel churn_ano vai ser o eixo y
+
+barras(anos, churn_ano, 'Ano', 'Churn (Em porcentagem)', 'Quantidade de chruns entre 2016 até o fim de 2021')
+
+```
+<div align="center">
+<img src="https://user-images.githubusercontent.com/99688544/153973782-f9623d62-543f-47b2-83c9-fdfc2b88b70c.png" width="700px" />
+</div>
+<div align="center" >Figura 2. Imagem do gráfico de barra mostrando a quantidade de chunrs entre 2016 e 2021.</div>
+
 
 ```python
-# Fazer um gráfico de barras para mostrar o número de assinaturas pausadas por mês
+# Fazer um gráfico de barras para mostrar os cancelamentos por faixa etária no ano de maior churn (2020)
 
-meses = ["Dez-2020", "Jan-2021"] # Eixo x
+faixa_etaria = ["1940-1949", "1950-1959", "1960-1969", "1970-1979", "1980-1989" , "1990-1999", "2000, para cima"] # Eixo x
 # A variacel cancelamentos_ano vai ser o eixo y
 
-plt.bar(meses, (pausadas_2020[11], pausadas_2021[0]), color = 'red') # Opções do gráfico de barras
-plt.xlabel('Meses') # Legenda do eixo x
-plt.ylabel('Assinaturas pausadas') # Legenda do eixo y
-plt.title('Quantidade de assinaturas pausadas por mês') # Título do gráfico
-plt.show() # Mostra o gráfico
+barras(faixa_etaria, cancelamento_faixa_etaria, 'Faixa etária', 'Assinaturas canceladas', 'Quantidade de cancelamentos em 2020 por faixa etária')
+
+```
+<div align="center">
+<img src="https://user-images.githubusercontent.com/99688544/153978718-964bc6e4-11b4-4a42-a31b-785df5f90228.png" />
+</div>
+<div align="center" >Figura 3. Imagem do gráfico de barra mostrando os cancelamentos realizados por 2020, por faixa etária.</div>
+
+```python
+# Fazer um gráfico de barras para mostrar os churns por mês no ano de maior churn (2020)
+
+meses = ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"] # Eixo x
+# A variacel cancelamentos_ano vai ser o eixo y
+
+barras(meses, churn_2020, 'Meses', 'Churn (Em porcentagem)', 'Quantidade de chruns por mês, no ano de 2020')
+
+```
+<div align="center">
+<img src="https://user-images.githubusercontent.com/99688544/153981320-c5e1ac59-e9f7-46bf-ac28-776ec630f8ed.png" />
+</div>
+<div align="center" >Figura 4. Imagem do gráfico de barra mostrando os churns em 2020, em cada mês.</div>
+
+```python
+meses = ["Dez-2020", "Jan-2021"] # Eixo x
+# A variavel cancelamentos_ano vai ser o eixo y
+
+barras(meses, (pausadas_2020[11], pausadas_2021[0]), 'Meses', 'Assinaturas pausadas', 'Quantidade de assinaturas pausadas por mês')
 ```
 
 <div align="center">
