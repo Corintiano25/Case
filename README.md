@@ -490,7 +490,3 @@ barras(meses, (pausadas_2020[11], pausadas_2021[0]), 'Meses', 'Assinaturas pausa
 <img src="https://user-images.githubusercontent.com/99688544/153984426-2ad70d95-41ac-4e0f-9036-c0c6c11cd499.png" />
 </div>
 <div align="center" >Figura 5. Imagem do gráfico de barra mostrando as assinaturas pausadas em 2020 e 2021.</div>
-
-## 4 - Resultados
-
-## 5 - Conclusões
