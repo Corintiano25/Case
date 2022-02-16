@@ -461,7 +461,7 @@ barras(faixa_etaria, cancelamento_faixa_etaria, 'Faixa etária', 'Assinaturas ca
 
 ```
 <div align="center">
-<img src="https://user-images.githubusercontent.com/99688544/153978718-964bc6e4-11b4-4a42-a31b-785df5f90228.png" />
+<img src="https://user-images.githubusercontent.com/99688544/154181440-7cf65664-b6e4-46a8-bff6-18bab56389c1.png" />
 </div>
 <div align="center" >Figura 3. Imagem do gráfico de barra mostrando os cancelamentos realizados por 2020, por faixa etária.</div>
 
@@ -483,10 +483,10 @@ barras(meses, churn_2020, 'Meses', 'Churn (Em porcentagem)', 'Quantidade de chru
 meses = ["Dez-2020", "Jan-2021"] # Eixo x
 # A variavel cancelamentos_ano vai ser o eixo y
 
-barras(meses, (pausadas_2020[11], pausadas_2021[0]), 'Meses', 'Assinaturas pausadas', 'Quantidade de assinaturas pausadas por mês')
+barras(meses, (pausadas_2020[11], pausadas_2021[0]), 'Meses', 'Assinaturas pausadas', 'Quando aqueles que pausaram sua assinatura, compraram pela última vez')
 ```
 
 <div align="center">
-<img src="https://user-images.githubusercontent.com/99688544/153984426-2ad70d95-41ac-4e0f-9036-c0c6c11cd499.png" />
+<img src="https://user-images.githubusercontent.com/99688544/154181246-ff6e9f54-c364-499c-85a9-ddce27122d1e.png" />
 </div>
 <div align="center" >Figura 5. Imagem do gráfico de barra mostrando as assinaturas pausadas em 2020 e 2021.</div>
