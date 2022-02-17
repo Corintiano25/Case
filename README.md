@@ -18,8 +18,6 @@ Tabela de conteúdos
       * 3.8 - Calcular os churns por mês, no ano de 2020, onde houve maior quantidade de cancelamentos de assinaturas
       * 3.9 - Análise das assinaturas pausadas
       * 3.10 - Construção dos gráficos de barras
-   * 4 - Resultados
-   * 5 - Conclusões
 <!--te-->
 
 ## 1 - Problema
